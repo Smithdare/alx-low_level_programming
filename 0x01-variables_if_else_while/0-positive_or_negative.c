@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- *
- * main - Entry point
+ * main - Prints a random number and states wether
+ * it is positive , negative, or zero.
  *
  *Return: Always 0 (Success)
  */ 
  
-init main(void)
+  init main(void)
 {
 	int n;
 
