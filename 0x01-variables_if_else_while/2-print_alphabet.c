@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /*
- * main - Prints the alphabet in lowercase.
+ * main - main block 
  * Description: putchar to print alphabet in lower case
  * Return: Always 0.
  */
