@@ -2,7 +2,7 @@
 
 /*
  * main - Prints the alphabet in lowercase.
- *
+ * Description: putchar to print alphabet in lower case
  * Return: Always 0.
  */
 int main(void)
