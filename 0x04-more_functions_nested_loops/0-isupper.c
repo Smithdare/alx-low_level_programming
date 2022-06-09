@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isuper - check for the upper case letters
+ * _ispuper - check for the upper case letters
  * @c :character to chech the case
  * Return: 0 or 1
  */
