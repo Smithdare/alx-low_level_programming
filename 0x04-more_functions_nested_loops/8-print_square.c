@@ -1,25 +1,21 @@
-nclude "main.h"
+#include "main.h"
 
 /**
- * print_square - check for a digit
- * @n : number of _ to be printed
- * Return:void
+ * print_diagonal - diagonal lines made of backslashes
+ * @n: number of \ to be printed
+ * Return: 0
  */
-void print_square(int n)
+void print_diagonal(int n)
 {
-	int i = 0, ii;
+	int a, b;
 
-	while (i < n && n > 0)
+	for (b = 1; b <= n; b++)
 	{
-		ii = 0;
-		while (ii < n)
-		{
-			_putchar('#');
-			ii++;
-		}
+		for (a = 1; a < b; a++)
+			_putchar(' ');
+		_putchar('\\');
 		_putchar('\n');
-		i++;
 	}
-	if (i == 0)
+	if (n < 1)
 		_putchar('\n');
 }
