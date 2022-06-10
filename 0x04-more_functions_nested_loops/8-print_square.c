@@ -1,21 +1,20 @@
 #include "main.h"
 
 /**
- * print_diagonal - diagonal lines made of backslashes
- * @n: number of \ to be printed
- * Return: 0
+ * print_square - print a square of input size
+ * @size: demensions of square
+ * Return: nothing
  */
-void print_diagonal(int n)
+void print_square(int size)
 {
-	int a, b;
+	int x, y;
 
-	for (b = 1; b <= n; b++)
+	for (y = 0; y < size; y++)
 	{
-		for (a = 1; a < b; a++)
-			_putchar(' ');
-		_putchar('\\');
+		for (x = 0; x < size; x++)
+			_putchar('#');
 		_putchar('\n');
 	}
-	if (n < 1)
+	if (size < 1)
 		_putchar('\n');
 }
