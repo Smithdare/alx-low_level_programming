@@ -25,6 +25,7 @@ void close_elf(int elf);
 void check_elf(unsigned char *e_ident)
 {
 	int index;
+
 	for (index = 0; index < 4; index++)
 	{
 		if (e_ident[index] != 127 &&
@@ -171,6 +172,7 @@ void print_abi(unsigned char *e_ident)
 	printf("  ABI Version:                       %d\n",
 		   e_ident[EI_ABIVERSION]);
 }
+
 /**
  * print_type - Prints the type of an ELF header.
  * @e_type: The ELF type.
@@ -180,7 +182,9 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
+
 	printf("  Type:                              ");
+
 	switch (e_type)
 	{
 	case ET_NONE:
@@ -202,6 +206,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_type);
 	}
 }
+
 /**
  * print_entry - Prints the entry point of an ELF header.
  * @e_entry: The address of the ELF entry point.
@@ -210,6 +215,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
+
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
@@ -218,9 +224,11 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	}
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
+
 	else
 		printf("%#lx\n", e_entry);
 }
+
 /**
  * close_elf - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
@@ -233,9 +241,11 @@ void close_elf(int elf)
 	{
 		dprintf(STDERR_FILENO,
 				"Error: Can't close fd %d\n", elf);
+
 		exit(98);
 	}
 }
+
 /**
  * main - Displays the information contained in the
  *        ELF header at the start of an ELF file.
@@ -273,6 +283,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
+
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
 	print_magic(header->e_ident);
